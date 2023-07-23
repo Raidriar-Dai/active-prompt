@@ -42,7 +42,7 @@ def main():
     print(f"Execution time: {end - start} seconds")
 
     print(f"wrong questions: {wrong_list}")
-    # save the wrong predictions
+    # save the wrong predictions and QA-records for all 
     if args.output_dir is not None:
         path = f"{args.output_dir}/wrong_{args.dataset}.txt"
         orginal_stdout = sys.stdout
@@ -161,9 +161,9 @@ def arg_parser():
     args = parser.parse_args()
 
     if args.multipath > 1:
-        args.temperature = 0.7
+        args.temperature = 0.7  # stochastic decoding strategy, different from greedy decoding which is deterministic.
     else:
-        args.temperature = 0
+        args.temperature = 0    # if self-consistency not enabled, then apply greedy decoding.
     print(f"Temperature: {args.temperature}")
     
     if args.dataset == "gsm8k":

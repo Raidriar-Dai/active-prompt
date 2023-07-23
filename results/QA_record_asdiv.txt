@@ -1,0 +1,52 @@
+[
+    {
+        "qes_idx": 805,
+        "Q": "At the gym, Hillary swims every 6 days, runs every 4 days and cycles every 16 days. If she did all three activities today, in how many days will she do all three activities again on the same day?",
+        "A": " To calculate in how many days will she do all three activities again on the same day, we need to find the least common multiple of 6, 4, and 16. The least common multiple of 6, 4, and 16 is 6*4*16 = 384. So she will do all three activities again on the same day in 384 days."
+    },
+    {
+        "qes_idx": 835,
+        "Q": "David spent 74 cents. He bought a ruler for 29 cents and a folder for 25 cents. He also bought 2 pencils. How much does one pencil cost?",
+        "A": " To calculate how much does one pencil cost, we need to know the total amount of money David spent, the amount of money spent on the ruler, the amount of money spent on the folder, and the number of pencils bought. The total amount of money David spent is 74 cents. The amount of money spent on the ruler is 29 cents. The amount of money spent on the folder is 25 cents. The number of pencils bought is 2. Therefore, the amount of money spent on the pencils is 74 - 29 - 25 = 20 cents. So, one pencil cost 20/2 = 10 cents. The answer is 10."
+    },
+    {
+        "qes_idx": 1928,
+        "Q": "At the zoo Zoe took sixty-seven pictures. If her sister took another seventeen pictures, how many did they take total?",
+        "A": " To calculate how many pictures did they take total, we need to know the number of pictures Zoe took and the number of pictures her sister took. Zoe took 67 pictures and her sister took another 17 pictures, so they took 67 + 17 = 84 pictures in total. The answer is 84."
+    },
+    {
+        "qes_idx": 1625,
+        "Q": "Paige's dresser drawers could hold 2 pieces of clothing each. If she had 4 drawers, how many pieces of clothing could it hold?",
+        "A": " To calculate how many pieces of clothing could Paige's dresser hold if she had 4 drawers, we need to know the number of pieces of clothing each drawer could hold and the total number of drawers she has. Each drawer could hold 2 pieces of clothing, and she has 4 drawers. So the total number of pieces of clothing her dresser could hold is 2 * 4 = 8 pieces of clothing. The answer is 8."
+    },
+    {
+        "qes_idx": 428,
+        "Q": "The next act involved several jugglers. If each juggler is juggling 6 balls at a time, how many balls are needed if there are 378 jugglers putting a show at the same time?",
+        "A": " To calculate how many balls are needed if there are 378 jugglers putting a show at the same time, we need to know the number of balls each juggler is juggling and the total number of jugglers. Each juggler is juggling 6 balls at a time, so the total number of balls needed is 6 * 378 = 2268 balls. The answer is 2268."
+    },
+    {
+        "qes_idx": 264,
+        "Q": "Even the chipmunks are trying to get away to find other warmer places to stay. If 21 chipmunk families were left from the original 86 families, how many chipmunk families went away?",
+        "A": " To calculate how many chipmunk families went away, we need to know the number of chipmunk families left and the total number of chipmunk families. The number of chipmunk families left is 21. The total number of chipmunk families is 86. The number of chipmunk families went away is 86 - 21 = 65. The answer is 65."
+    },
+    {
+        "qes_idx": 555,
+        "Q": "63 people are going to the zoo. There are 3 cars to take people to the zoo. How many will go in each car if the same number go in each car?",
+        "A": " To calculate how many people will go in each car, we need to know the number of people, the number of cars, and the number of people in each car. The number of people is 63. The number of cars is 3. The number of people in each car is 63/3 = 21. The answer is 21."
+    },
+    {
+        "qes_idx": 458,
+        "Q": "A large bag of balls was kept under Haley's bed. Her mom placed the balls in bags for children in foster homes. If every bag can contain 4 balls and Haley has 36 balls, how many bags will be used?",
+        "A": " To calculate how many bags will be used, we need to know the number of balls in a bag and the total number of balls Haley has. The number of balls in a bag is 4 balls. The total number of balls Haley has is 36 balls. The number of bags needed is 36/4 = 9 bags. The answer is 9."
+    },
+    {
+        "qes_idx": 183,
+        "Q": "The treehouse is almost done; all they need is to paint it. His father estimated that they will use 20 ounces of white paint, 15 ounces of green paint and 34 ounces of brown paint. How many ounces of paint would they buy in total?",
+        "A": " To calculate how many ounces of paint would they buy in total, we need to know the number of ounces of white paint, the number of ounces of green paint, and the number of ounces of brown paint. The total number of ounces of paint is 20 + 15 + 34 = 69 ounces. The answer is 69."
+    },
+    {
+        "qes_idx": 1234,
+        "Q": "After paying 6 dollars for the pie, Sandy has 57 dollars left. How much money did she have before buying the pie?",
+        "A": " To calculate how much money did Sandy have before buying the pie, we need to know the amount of money she has now and the amount of money she spent on the pie. The amount of money she has now is 57 dollars. The amount of money she spent on the pie is 6 dollars. Therefore, the amount of money she had before buying the pie is 57 + 6 = 63 dollars. The answer is 63."
+    }
+]

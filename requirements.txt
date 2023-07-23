@@ -1,4 +1,24 @@
-openai
+# environment file without python or pytorch packages;
+# $ conda create --name qirundai --file requirements.txt
+# $ conda install --yes --file requirements.txt
+# $ pip install -r requirements.txt
+
+# 1. You can install the following packages before installing pytorch.
+python
 numpy
-torch
 scipy
+# pandas
+# matplotlib
+jupyter
+tqdm
+wandb
+gpustat
+
+# 2. Install pytorch packages according to official instructions.
+
+# 3. You need to install the following packages after pytorch is installed.
+# openai
+
+# 4. The $PATH environment variable for this machine is wrongly set as `/home/dqwang/.local/bin/pip`
+# So when there is a need to pip install sth, use `/home/dqwang/anaconda3/envs/qirundai4/bin/pip install`
+

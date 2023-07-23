@@ -58,6 +58,7 @@ def generate_uncertainty_qes(args, question):
     else:
         uncertainty_record = {'dataset_idx':question['question_idx'], 'entropy':float, 'occurrence':{}}
 
+    # args.num_trails 就是原论文中的 pool_size k
     for trail in range(args.num_trails):
         # if zero-shot to generate uncertainty, construct first stage zero-shot prompt (step by step)
         if args.method == "few_shot_cot":
@@ -129,6 +130,7 @@ def create_uncertainty(args, questions):
         if args.dataset == "strategyqa":
             try:
                 # sort based on the entropy or the difference between yes and no answers
+                # yes 与 no 之间的差值越小, 表明该问题越 uncertain
                 result.sort(key=lambda x: abs(x['occurrence']['yes'] - x['occurrence']['no']))
             except:
                 # sort by disagreement
@@ -159,7 +161,7 @@ def arg_parser():
         "--method", type=str, default="few_shot_cot", choices=["zero_shot_cot", "few_shot_cot"], help="method"
     )
     parser.add_argument(
-        "--output_dir", type=str, default="./", help="output directory"
+        "--output_dir", type=str, default="./uncertainty_results", help="output directory"
     )
     parser.add_argument(
         "--max_length_cot", type=int, default=256, help="maximum length of output tokens by model for reasoning extraction"
@@ -174,7 +176,7 @@ def arg_parser():
         "--temperature", type=float, default=0.7, help=""
     )
     parser.add_argument(
-        "--num_trails", type=int, default=5, help="number of trails to run for each qeestion"
+        "--num_trails", type=int, default=5, help="number of trails to run for each qestion"
     )
     parser.add_argument(
         "--sort_by", type=str, default='disagreement', choices=['disagreement', 'variance', 'entropy'], help="sort the final result by given option"
