@@ -9,9 +9,12 @@ import json
 import re
 from collections import Counter
 import time
+import requests
+
 
 # put your Openai API_KEY here
-API_KEY = ""
+# API_KEY = ""   # Bought from Taobao.
+API_KEY = "" # From dqwang's group.
 # define for no solution if GPT cannot generate a valid solution
 # here define a magic number for the convenience of variance calculation
 NO_SOLUTION = '-10086'
@@ -25,23 +28,56 @@ def set_random_seed(seed):
         torch.cuda.manual_seed_all(seed)
 
 
+def openai_ChatCompletion_create(**kwargs):
+    url = 'https://api.dqwang.group/v1/chat/completions'
+    headers = {
+        "Authorization": "Bearer " + API_KEY,
+        "Content-type": "application/json",
+        }
+    data = json.dumps(kwargs)
+    resp = requests.post(url, headers=headers, data=data)
+    return json.loads(resp.content)
+
+
+def openai_Completion_create(**kwargs):
+    url = 'https://api.dqwang.group/v1/completions'
+    headers = {
+        "Authorization": "Bearer " + API_KEY,
+        "Content-type": "application/json",
+        }
+    data = json.dumps(kwargs)
+    resp = requests.post(url, headers=headers, data=data)
+    return json.loads(resp.content)
+
+
 # pass in a prompt and returns a response body contains response
-def GPT3_request(model:str, input_prompt:list, max_tokens:int, time_interval, temperature=0.7, stop=None):
+def GPT3_request(model:str, input_prompt, max_tokens:int, time_interval, temperature=0.7, stop=None):
     resp = None
     done = False
     while not done:
         try:
-            openai.api_key = API_KEY
-            resp = openai.Completion.create(
-                model=model,
-                prompt=input_prompt,
-                temperature=temperature,
-                max_tokens=max_tokens,
-                top_p=1,
-                frequency_penalty=0,
-                presence_penalty=0,
-                stop = stop
-            )
+            # openai.api_key = API_KEY
+            # resp = openai.Completion.create(
+            #     model=model,
+            #     prompt=input_prompt,
+            #     temperature=temperature,
+            #     max_tokens=max_tokens,
+            #     top_p=1,
+            #     frequency_penalty=0,
+            #     presence_penalty=0,
+            #     stop = stop
+            # )
+            kwargs = {
+                "model": model,
+                "prompt": input_prompt,
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+                "top_p": 1,
+                "frequency_penalty": 0,
+                "presence_penalty": 0,
+                "stop": stop
+            }
+            resp = openai_Completion_create(**kwargs)
             done = True
         except:
             errno = sys.exc_info()[:2]

@@ -3,6 +3,7 @@ import time
 import argparse
 import sys
 import json
+import pdb
 
 
 def main():
@@ -74,13 +75,14 @@ def inference_cot(args, question_pool, qes_limit, given_prompt):
             prompt = given_prompt + "Q: " + qes['question'] + "\nA: Let's think step by step in Python."
         else:
             prompt = given_prompt + "Q: " + qes['question'] + "\nA: Let's think step by step."
-        prompt_list = [prompt]
+        # prompt_list = [prompt]
+        short_prompt = "Say this is a test."
 
         # enable self-consistency if multipath > 1
         for path in range(0, args.multipath):
-            responses = GPT3_request(model=args.model, input_prompt=prompt_list, max_tokens=args.max_length_cot, time_interval=args.api_time_interval,
+            responses = GPT3_request(model=args.model, input_prompt=short_prompt, max_tokens=args.max_length_cot, time_interval=args.api_time_interval,
                                       temperature=args.temperature, stop='\n')
-
+            pdb.set_trace()
             pred_ans = answer_extraction(args, responses)
 
             # create a dict to record each Q&A for later review purposes
@@ -90,7 +92,7 @@ def inference_cot(args, question_pool, qes_limit, given_prompt):
             QA['A'] = responses['choices'][0]['text']
             QA_record.append(QA)
 
-            # output current inference result (only works when self-consistency is not enable)
+            # output current inference result (only works when self-consistency is not enabled)
             if args.multipath == 1:
                 print('-' * 20)
                 print(f"Question number: {qes_num}")
@@ -128,7 +130,7 @@ def arg_parser():
         "--prompt_path", type=str, default="./inference_prompts/gsm8k_k=10", help="prompts to use"
     )
     parser.add_argument(
-        "--model", type=str, default="code-davinci-002", choices=["text-davinci-002", "code-davinci-002"], help="model used for decoding."
+        "--model", type=str, default="code-davinci-002", choices=["text-davinci-002", "code-davinci-002", "text-davinci-003"], help="model used for decoding."
     )
     parser.add_argument(
         "--method", type=str, default="active_cot", choices=["zero_shot", "zero_shot_cot", "few_shot", "few_shot_cot", "auto_cot", "active_cot"], help="method"

@@ -4,7 +4,7 @@
 # $ pip install -r requirements.txt
 
 # 1. You can install the following packages before installing pytorch.
-python
+# python
 numpy
 scipy
 # pandas
@@ -20,5 +20,5 @@ gpustat
 # openai
 
 # 4. The $PATH environment variable for this machine is wrongly set as `/home/dqwang/.local/bin/pip`
-# So when there is a need to pip install sth, use `/home/dqwang/anaconda3/envs/qirundai4/bin/pip install`
+# So when there is a need to pip install sth, use `/home/dqwang/anaconda3/envs/qirundai/bin/pip install`
 
