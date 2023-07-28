@@ -25,7 +25,7 @@ def main():
     if args.qes_limit == 0:
         args.qes_limit = len(dataloader)
 
-    start =time.time()
+    start = time.time()
     result = create_uncertainty(args, dataloader)
     end = time.time()
     print('Total Execution Time: ', end - start, " seconds")
@@ -116,6 +116,7 @@ def generate_uncertainty_qes(args, question):
 
 # return a sorted list by uncertainty from high to low
 def create_uncertainty(args, questions):
+    '''The argument provided for `questions` is `dataloader`'''
     result = []
     count = 0
 
